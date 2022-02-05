@@ -6,7 +6,7 @@ use crate::{
     api::{self, codec::Framed},
     common::container::Container,
     npk::manifest::{self, Permission},
-    runtime::{EventTx, ExitStatus},
+    runtime::{ipc::RawFdExt, EventTx, ExitStatus},
 };
 use api::model;
 use async_stream::stream;
@@ -20,6 +20,7 @@ use futures::{
 use log::{debug, error, info, trace, warn};
 use std::{
     fmt,
+    os::unix::prelude::AsRawFd,
     path::{Path, PathBuf},
     unreachable,
 };
@@ -30,8 +31,7 @@ use tokio::{
     net::{TcpListener, UnixListener},
     pin, select,
     sync::{broadcast, mpsc, oneshot},
-    task::{self},
-    time,
+    task, time,
 };
 use tokio_util::{either::Either, io::ReaderStream, sync::CancellationToken};
 use url::Url;
@@ -137,7 +137,7 @@ impl Console {
     }
 
     #[allow(clippy::too_many_arguments)]
-    pub(super) async fn connection<T: AsyncRead + AsyncWrite + Unpin>(
+    pub(super) async fn connection<T: AsyncRead + AsyncWrite + Unpin + AsRawFd>(
         stream: T,
         peer: Peer,
         stop: CancellationToken,
@@ -276,7 +276,29 @@ impl Console {
                     }
                 }
                 item = network_stream.next() => {
-                    if let Some(Ok(model::Message::Request { request })) = item {
+                    let mut message = if let Some(Ok(msg)) = item {
+                        msg
+                    } else {
+                        break;
+                    };
+
+                    // In case of an exec request, a PTY device is configured and its slave end is
+                    // sent inside the request. After processing the request, the connection is
+                    // used to forward the io coming and going from the master file descriptor.
+                    let master_fd = match message {
+                        model::Message::Request {
+                            request: model::Request::Exec {
+                                ref mut pty, ..
+                            }
+                        } => {
+                            let (master_fd, slave_name) = super::io::openpty();
+                            *pty = Some(slave_name);
+                            Some(master_fd)
+                        }
+                        _ => None
+                    };
+
+                    if let model::Message::Request { request } = message {
                         trace!("{}: --> {:?}", peer, request);
                         let response = match process_request(&peer, &mut network_stream, &stop, &configuration, &event_tx, request).await {
                             Ok(response) => response,
@@ -292,15 +314,30 @@ impl Console {
                             break;
                         }
                     } else {
-                        warn!("{}: Unexpected message: {:?}. Disconnecting...", peer, item);
+                        warn!("{}: Unexpected message: {:?}. Disconnecting...", peer, message);
                         break;
+                    }
+
+                    // Repourpose the connection to processe's io
+                    if let Some(master_fd) = master_fd {
+                        let connection = network_stream.into_inner();
+                        connection.set_nonblocking(false).unwrap();
+                        master_fd.set_nonblocking(false).unwrap();
+                        match super::io::bridge(connection, master_fd).await {
+                            Ok(()) => {
+                                info!("{}: Connection closed", peer);
+                            }
+                            Err(e) => {
+                                warn!("{}: Connection error: {}", peer, e);
+                            }
+                        }
+                        return Ok(());
                     }
                 }
             }
         }
 
         info!("{}: Connection closed", peer);
-
         Ok(())
     }
 }
@@ -334,6 +371,7 @@ where
         model::Request::Umount { .. } => Permission::Umount,
         model::Request::Uninstall { .. } => Permission::Uninstall,
         model::Request::ContainerStats { .. } => Permission::ContainerStatistics,
+        model::Request::Exec { .. } => Permission::Exec,
     };
 
     if !configuration.contains(&required_permission) {
@@ -460,7 +498,7 @@ async fn serve<AcceptFun, AcceptFuture, Stream, Addr>(
 ) where
     AcceptFun: Fn() -> AcceptFuture,
     AcceptFuture: Future<Output = Result<(Stream, Addr), io::Error>>,
-    Stream: AsyncWrite + AsyncRead + Unpin + Send + 'static,
+    Stream: AsyncWrite + AsyncRead + Unpin + Send + Sync + 'static + AsRawFd,
     Addr: Into<Peer>,
 {
     let mut connections = FuturesUnordered::new();

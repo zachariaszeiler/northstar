@@ -1,5 +1,5 @@
 use super::model;
-use std::io::ErrorKind;
+use std::{io::ErrorKind, os::unix::prelude::AsRawFd};
 use tokio::io::{self, AsyncRead, AsyncWrite};
 use tokio_util::codec::{Decoder, Encoder};
 
@@ -8,7 +8,7 @@ pub struct Framed<T> {
     inner: tokio_util::codec::Framed<T, Codec>,
 }
 
-impl<T: AsyncRead + AsyncWrite> Framed<T> {
+impl<T: AsyncRead + AsyncWrite + AsRawFd> Framed<T> {
     /// Provides a [`Stream`] and [`Sink`] interface for reading and writing to this
     /// I/O object, using [`Decoder`] and [`Encoder`] to read and write the raw data.
     pub fn new(inner: T) -> Framed<T> {
@@ -25,6 +25,11 @@ impl<T: AsyncRead + AsyncWrite> Framed<T> {
         Framed {
             inner: tokio_util::codec::Framed::with_capacity(inner, Codec::default(), capacity),
         }
+    }
+
+    /// Return the inner connection
+    pub fn into_inner(self) -> T {
+        self.inner.into_inner()
     }
 }
 

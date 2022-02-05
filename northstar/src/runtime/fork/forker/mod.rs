@@ -117,6 +117,7 @@ impl Forker {
         path: NonNulString,
         args: Vec<NonNulString>,
         env: Vec<NonNulString>,
+        setsid: bool,
         io: [OwnedFd; 3],
     ) -> Result<(), Error> {
         let message = Message::ExecRequest {
@@ -124,6 +125,7 @@ impl Forker {
             path,
             args,
             env,
+            setsid,
             io: Some(io),
         };
         self.request_response(message).await.map(drop)

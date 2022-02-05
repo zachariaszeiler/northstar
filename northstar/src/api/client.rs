@@ -14,6 +14,7 @@ use std::{
     collections::{HashMap, HashSet, VecDeque},
     convert::{Infallible, TryInto},
     iter::empty,
+    os::unix::prelude::AsRawFd,
     path::Path,
     pin::Pin,
     task::Poll,
@@ -98,7 +99,7 @@ pub struct Client<T> {
 pub type Connection<T> = codec::Framed<T>;
 
 /// Connect and return a raw stream and sink interface. See codec for details
-pub async fn connect<T: AsyncRead + AsyncWrite + Unpin>(
+pub async fn connect<T: AsyncRead + AsyncWrite + Unpin + AsRawFd>(
     io: T,
     notifications: Option<usize>,
     timeout: time::Duration,
@@ -153,7 +154,7 @@ pub async fn connect<T: AsyncRead + AsyncWrite + Unpin>(
     }
 }
 
-impl<'a, T: AsyncRead + AsyncWrite + Unpin> Client<T> {
+impl<'a, T: AsyncRead + AsyncWrite + Unpin + AsRawFd> Client<T> {
     /// Create a new northstar client and connect to a runtime instance running on `host`.
     pub async fn new(
         io: T,
@@ -174,6 +175,11 @@ impl<'a, T: AsyncRead + AsyncWrite + Unpin> Client<T> {
     /// Convert client into a connection
     pub fn framed(self) -> Connection<T> {
         self.connection
+    }
+
+    /// Return the inner connection
+    pub fn into_inner(self) -> T {
+        self.framed().into_inner()
     }
 
     /// Perform a request response sequence

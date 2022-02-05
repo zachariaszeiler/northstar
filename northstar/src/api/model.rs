@@ -1,6 +1,9 @@
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    path::PathBuf,
+};
 
 /// Console configuration
 pub type ConsoleConfiguration = crate::npk::manifest::Console;
@@ -141,6 +144,19 @@ pub enum Request {
     Kill {
         container: Container,
         signal: i32,
+    },
+    /// Start a new process in a container
+    Exec {
+        /// Container
+        container: Container,
+        /// Environment variables
+        env: Vec<NonNulString>,
+        /// Command and arguments
+        path: NonNulString,
+        /// Command and arguments
+        args: Vec<NonNulString>,
+        /// Slave pty path to bind the process to
+        pty: Option<PathBuf>,
     },
     Install {
         repository: RepositoryId,
