@@ -15,7 +15,7 @@ use itertools::Itertools;
 use nix::{
     errno::Errno,
     libc::{self, c_ulong},
-    mount::MsFlags,
+    mount::{MntFlags, MsFlags},
     sched::unshare,
     sys::{
         signal::Signal,
@@ -92,7 +92,12 @@ impl Init {
 
         // Set the chroot to the containers root mount point
         debug!("Chrooting to {}", self.root.display());
-        unistd::chroot(&self.root).expect("Failed to chroot");
+        unistd::chdir(&self.root).expect("Failed to chdir to root");
+
+        // Uses /mnt to mount `old-root`
+        let old_root = std::path::PathBuf::from("mnt");
+        unistd::pivot_root(".", &old_root).expect("Failed to pivot_root");
+        nix::mount::umount2(&old_root, MntFlags::MNT_DETACH).expect("Failed to umount old_root");
 
         // Set current working directory to root
         debug!("Setting cwd to /");

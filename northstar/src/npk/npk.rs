@@ -735,6 +735,8 @@ fn gen_pseudo_files(manifest: &Manifest) -> Result<NamedTempFile, Error> {
                 }
             }
         })
+        // This directory is used by `pivot_root` as the `old-root` parameter
+        .chain(pseudo_directory(Path::new("/mnt"), 755))
         .collect::<Vec<String>>();
 
     let mut pseudo_file_entries = NamedTempFile::new()
