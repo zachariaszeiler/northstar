@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["northstar"] = [{"text":"impl EnumCount for <a class=\"enum\" href=\"northstar/npk/manifest/enum.Permission.html\" title=\"enum northstar::npk::manifest::Permission\">Permission</a>","synthetic":false,"types":["northstar::npk::manifest::console::Permission"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

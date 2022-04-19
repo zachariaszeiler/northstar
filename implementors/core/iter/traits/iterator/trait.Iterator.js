@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["northstar"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.60.0/core/iter/traits/iterator/trait.Iterator.html\" title=\"trait core::iter::traits::iterator::Iterator\">Iterator</a> for <a class=\"struct\" href=\"northstar/npk/manifest/struct.PermissionIter.html\" title=\"struct northstar::npk::manifest::PermissionIter\">PermissionIter</a>","synthetic":false,"types":["northstar::npk::manifest::console::PermissionIter"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

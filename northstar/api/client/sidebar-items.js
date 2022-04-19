@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","API error"]],"fn":[["connect","Connect and return a raw stream and sink interface. See codec for details"]],"struct":[["Client","Client for a Northstar runtime instance."]],"type":[["Connection","Northstar console connection"]]});

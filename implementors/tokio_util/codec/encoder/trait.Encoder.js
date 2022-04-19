@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["northstar"] = [{"text":"impl Encoder&lt;<a class=\"enum\" href=\"northstar/api/model/enum.Message.html\" title=\"enum northstar::api::model::Message\">Message</a>&gt; for <a class=\"struct\" href=\"northstar/api/codec/struct.Codec.html\" title=\"struct northstar::api::codec::Codec\">Codec</a>","synthetic":false,"types":["northstar::api::codec::Codec"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

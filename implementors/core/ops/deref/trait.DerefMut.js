@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["northstar"] = [{"text":"impl&lt;T&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/1.60.0/core/ops/deref/trait.DerefMut.html\" title=\"trait core::ops::deref::DerefMut\">DerefMut</a> for <a class=\"struct\" href=\"northstar/api/codec/struct.Framed.html\" title=\"struct northstar::api::codec::Framed\">Framed</a>&lt;T&gt;","synthetic":false,"types":["northstar::api::codec::Framed"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

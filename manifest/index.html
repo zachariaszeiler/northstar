@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Northstar</title>
+    <style type="text/css">
+      body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+.http-method {
+ text-transform: uppercase;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.up {
+  float:right;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.param-enum-header {
+width: 700px;
+padding: 0 0 0 60px;
+color: #777;
+font-weight: bold;
+}
+
+.param-enum {
+width: 700px;
+padding: 0 0 0 80px;
+color: #777;
+font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+  <h1>Northstar</h1>
+    <div class="app-desc">Northstar API</div>
+    <div class="app-desc">More information: <a href="http://www.esrlabs.com">http://www.esrlabs.com</a></div>
+    <div class="app-desc">Contact Info: <a href="info@esrlabs.com">info@esrlabs.com</a></div>
+    <div class="app-desc">Version: 0.2.3</div>
+    <div class="app-desc">BasePath:</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Autostart"><code>Autostart</code> - </a></li>
+    <li><a href="#BlkIoDeviceResource"><code>BlkIoDeviceResource</code> - </a></li>
+    <li><a href="#BlkIoDeviceThrottleResource"><code>BlkIoDeviceThrottleResource</code> - </a></li>
+    <li><a href="#BlkIoResources"><code>BlkIoResources</code> - </a></li>
+    <li><a href="#CGroups"><code>CGroups</code> - </a></li>
+    <li><a href="#Capability"><code>Capability</code> - </a></li>
+    <li><a href="#Console"><code>Console</code> - </a></li>
+    <li><a href="#CpuResources"><code>CpuResources</code> - </a></li>
+    <li><a href="#Io"><code>Io</code> - </a></li>
+    <li><a href="#Manifest"><code>Manifest</code> - </a></li>
+    <li><a href="#MemoryResources"><code>MemoryResources</code> - </a></li>
+    <li><a href="#Mount"><code>Mount</code> - </a></li>
+    <li><a href="#MountOption"><code>MountOption</code> - </a></li>
+    <li><a href="#Mount_oneOf"><code>Mount_oneOf</code> - </a></li>
+    <li><a href="#Mount_oneOf_1"><code>Mount_oneOf_1</code> - </a></li>
+    <li><a href="#Mount_oneOf_2"><code>Mount_oneOf_2</code> - </a></li>
+    <li><a href="#Mount_oneOf_3"><code>Mount_oneOf_3</code> - </a></li>
+    <li><a href="#Mount_oneOf_4"><code>Mount_oneOf_4</code> - </a></li>
+    <li><a href="#Mount_oneOf_5"><code>Mount_oneOf_5</code> - </a></li>
+    <li><a href="#Output"><code>Output</code> - </a></li>
+    <li><a href="#Permission"><code>Permission</code> - </a></li>
+    <li><a href="#Profile"><code>Profile</code> - </a></li>
+    <li><a href="#RLimitValue"><code>RLimitValue</code> - </a></li>
+    <li><a href="#Seccomp"><code>Seccomp</code> - </a></li>
+    <li><a href="#Selinux"><code>Selinux</code> - </a></li>
+    <li><a href="#SyscallArgRule"><code>SyscallArgRule</code> - </a></li>
+    <li><a href="#SyscallRule"><code>SyscallRule</code> - </a></li>
+    <li><a href="#SyscallRule_oneOf"><code>SyscallRule_oneOf</code> - </a></li>
+    <li><a href="#SyscallRule_oneOf_1"><code>SyscallRule_oneOf_1</code> - </a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Autostart"><code>Autostart</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Autostart options</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BlkIoDeviceResource"><code>BlkIoDeviceResource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Bkio device resource</div>
+    <div class="field-items">
+      <div class="param">major </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The major number of the device. format: uint64</div>
+<div class="param">minor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The minor number of the device. format: uint64</div>
+<div class="param">weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The weight of the device against the descendant nodes. format: uint16</div>
+<div class="param">leaf_weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The weight of the device against the sibling nodes. format: uint16</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BlkIoDeviceThrottleResource"><code>BlkIoDeviceThrottleResource</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Provides the ability to throttle a device (both byte/sec, and IO op/s)</div>
+    <div class="field-items">
+      <div class="param">major </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The major number of the device. format: uint64</div>
+<div class="param">minor </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The minor number of the device. format: uint64</div>
+<div class="param">rate </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The rate. format: uint64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="BlkIoResources"><code>BlkIoResources</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Blkio controller</div>
+    <div class="field-items">
+      <div class="param">weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The weight of the control group against descendant nodes. format: uint16</div>
+<div class="param">leaf_weight (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> The weight of the control group against sibling nodes. format: uint16</div>
+<div class="param">weight_device </div><div class="param-desc"><span class="param-type"><a href="#BlkIoDeviceResource">array[BlkIoDeviceResource]</a></span> For each device, a separate weight (both normal and leaf) can be provided. </div>
+<div class="param">throttle_read_bps_device </div><div class="param-desc"><span class="param-type"><a href="#BlkIoDeviceThrottleResource">array[BlkIoDeviceThrottleResource]</a></span> Throttled read bytes/second can be provided for each device. </div>
+<div class="param">throttle_read_iops_device </div><div class="param-desc"><span class="param-type"><a href="#BlkIoDeviceThrottleResource">array[BlkIoDeviceThrottleResource]</a></span> Throttled read IO operations per second can be provided for each device. </div>
+<div class="param">throttle_write_bps_device </div><div class="param-desc"><span class="param-type"><a href="#BlkIoDeviceThrottleResource">array[BlkIoDeviceThrottleResource]</a></span> Throttled written bytes/second can be provided for each device. </div>
+<div class="param">throttle_write_iops_device </div><div class="param-desc"><span class="param-type"><a href="#BlkIoDeviceThrottleResource">array[BlkIoDeviceThrottleResource]</a></span> Throttled write IO operations per second can be provided for each device. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CGroups"><code>CGroups</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>CGroups configuration</div>
+    <div class="field-items">
+      <div class="param">blkio (optional)</div><div class="param-desc"><span class="param-type"><a href="#BlkIoResources">BlkIoResources</a></span>  </div>
+<div class="param">cpu (optional)</div><div class="param-desc"><span class="param-type"><a href="#CpuResources">CpuResources</a></span>  </div>
+<div class="param">memory (optional)</div><div class="param-desc"><span class="param-type"><a href="#MemoryResources">MemoryResources</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Capability"><code>Capability</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Linux capability</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Console"><code>Console</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Console access level: list of allowed request message types <code>yaml console: - shutdown - start</code> or <code>yaml console: full</code></div>
+    <div class="field-items">
+      <div class="param">permissions </div><div class="param-desc"><span class="param-type"><a href="#Permission">set[Permission]</a></span> List of features </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="CpuResources"><code>CpuResources</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Cpu controller</div>
+    <div class="field-items">
+      <div class="param">cpus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> A comma-separated list of CPU IDs where the task in the control group can run. Dashes between numbers indicate ranges. </div>
+<div class="param">mems (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Same syntax as the <code>cpus</code> field of this structure, but applies to memory nodes instead of processors. </div>
+<div class="param">shares (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Weight of how much of the total CPU time should this control group get. Note that this is hierarchical, so this is weighted against the siblings of this control group. format: uint64</div>
+<div class="param">quota (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> In one <code>period</code>, how much can the tasks run in nanoseconds. format: int64</div>
+<div class="param">period (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Period of time in nanoseconds. format: uint64</div>
+<div class="param">realtime_runtime (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> This is currently a no-operation. format: int64</div>
+<div class="param">realtime_period (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> This is currently a no-operation. format: uint64</div>
+<div class="param">attrs </div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Customized key-value attributes </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Io"><code>Io</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>IO configuration for stdin, stdout, stderr</div>
+    <div class="field-items">
+      <div class="param">stdout </div><div class="param-desc"><span class="param-type"><a href="#Output">Output</a></span>  </div>
+<div class="param">stderr </div><div class="param-desc"><span class="param-type"><a href="#Output">Output</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Manifest"><code>Manifest</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Northstar package manifest</div>
+    <div class="field-items">
+      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">version </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">console (optional)</div><div class="param-desc"><span class="param-type"><a href="#Console">Console</a></span>  </div>
+<div class="param">init (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Path to init </div>
+<div class="param">args (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> Additional arguments for the application invocation </div>
+<div class="param">env (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Environment passed to container </div>
+<div class="param">uid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> UID format: uint16</div>
+<div class="param">gid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> GID format: uint16</div>
+<div class="param">mounts (optional)</div><div class="param-desc"><span class="param-type"><a href="#Mount">map[String, Mount]</a></span> List of bind mounts and resources </div>
+<div class="param">autostart (optional)</div><div class="param-desc"><span class="param-type"><a href="#Autostart">Autostart</a></span>  </div>
+<div class="param">cgroups (optional)</div><div class="param-desc"><span class="param-type"><a href="#CGroups">CGroups</a></span>  </div>
+<div class="param">seccomp (optional)</div><div class="param-desc"><span class="param-type"><a href="#Seccomp">Seccomp</a></span>  </div>
+<div class="param">selinux (optional)</div><div class="param-desc"><span class="param-type"><a href="#Selinux">Selinux</a></span>  </div>
+<div class="param">capabilities (optional)</div><div class="param-desc"><span class="param-type"><a href="#Capability">set[Capability]</a></span> Capabilities </div>
+<div class="param">suppl_groups (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span> String containing group names to give to new container </div>
+<div class="param">rlimits (optional)</div><div class="param-desc"><span class="param-type"><a href="#RLimitValue">map[String, RLimitValue]</a></span> Resource limits </div>
+<div class="param">io (optional)</div><div class="param-desc"><span class="param-type"><a href="#Io">Io</a></span>  </div>
+<div class="param">custom (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Optional custom data. The runtime doesnt use this. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MemoryResources"><code>MemoryResources</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Memory controller</div>
+    <div class="field-items">
+      <div class="param">kernel_memory_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> How much memory (in bytes) can the kernel consume. format: int64</div>
+<div class="param">memory_hard_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Upper limit of memory usage of the control group's tasks. format: int64</div>
+<div class="param">memory_soft_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> How much memory the tasks in the control group can use when the system is under memory pressure. format: int64</div>
+<div class="param">kernel_tcp_memory_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> How much of the kernel's memory (in bytes) can be used for TCP-related buffers. format: int64</div>
+<div class="param">memory_swap_limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> How much memory and swap together can the tasks in the control group use. format: int64</div>
+<div class="param">swappiness (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> <p>Controls the tendency of the kernel to swap out parts of the address space of the tasks to disk. Lower value implies less likely.</p>
+<p>Note, however, that a value of zero does not mean the process is never swapped out. Use the traditional <code>mlock(2)</code> system call for that purpose.</p>
+ format: uint64</div>
+<div class="param">attrs </div><div class="param-desc"><span class="param-type"><a href="#string">map[String, String]</a></span> Customized key-value attributes </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount"><code>Mount</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mounts</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">tmpfs</div>
+<div class="param">host </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Path in the host filesystem </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#MountOption">set[MountOption]</a></span> Mount option set </div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">version </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dir </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Directory within the resource container </div>
+<div class="param">size </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Size in bytes format: uint64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MountOption"><code>MountOption</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mount option</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf"><code>Mount_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Bind mount of a host dir with options</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">bind</div>
+<div class="param">host </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Path in the host filesystem </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#MountOption">set[MountOption]</a></span> Mount option set </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf_1"><code>Mount_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Use a minimal dev tree</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">dev</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf_2"><code>Mount_oneOf_2</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mount a rw host directory dedicated to this container rw</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">persist</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf_3"><code>Mount_oneOf_3</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mount proc</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">proc</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf_4"><code>Mount_oneOf_4</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mount a directory from a resource</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">resource</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">version </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dir </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Directory within the resource container </div>
+<div class="param">options (optional)</div><div class="param-desc"><span class="param-type"><a href="#MountOption">set[MountOption]</a></span> Mount option set </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mount_oneOf_5"><code>Mount_oneOf_5</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Mount a tmpfs with size</div>
+    <div class="field-items">
+      <div class="param">type </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">tmpfs</div>
+<div class="param">size </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Size in bytes format: uint64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Output"><code>Output</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Io redirection for stdout/stderr</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Permission"><code>Permission</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Console features. Matches the api request struct and notifications</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Profile"><code>Profile</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Predefined seccomp profile</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="RLimitValue"><code>RLimitValue</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Value for a rlimit setting</div>
+    <div class="field-items">
+      <div class="param">soft (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Soft limit value for resource. None indicates <code>unlimited</code>. format: uint64</div>
+<div class="param">hard (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Hard limit value for resource. None indicates <code>unlimited</code>. format: uint64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Seccomp"><code>Seccomp</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Seccomp configuration</div>
+    <div class="field-items">
+      <div class="param">profile (optional)</div><div class="param-desc"><span class="param-type"><a href="#Profile">Profile</a></span>  </div>
+<div class="param">allow (optional)</div><div class="param-desc"><span class="param-type"><a href="#SyscallRule">map[String, SyscallRule]</a></span> Explicit list of allowed syscalls </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Selinux"><code>Selinux</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>SELinux configuration</div>
+    <div class="field-items">
+      <div class="param">context </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SyscallArgRule"><code>SyscallArgRule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Syscall argument rule</div>
+    <div class="field-items">
+      <div class="param">index </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Index of syscall argument format: uint</div>
+<div class="param">values (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span> Value of syscall argument format: uint64</div>
+<div class="param">mask (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Bitmask of syscall argument format: uint64</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SyscallRule"><code>SyscallRule</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Syscall rule</div>
+    <div class="field-items">
+      <div class="param">args </div><div class="param-desc"><span class="param-type"><a href="#SyscallArgRule">SyscallArgRule</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SyscallRule_oneOf"><code>SyscallRule_oneOf</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'></div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="SyscallRule_oneOf_1"><code>SyscallRule_oneOf_1</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Explicit list of allowed syscalls arguments</div>
+    <div class="field-items">
+      <div class="param">args </div><div class="param-desc"><span class="param-type"><a href="#SyscallArgRule">SyscallArgRule</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
