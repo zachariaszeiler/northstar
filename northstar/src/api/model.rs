@@ -119,7 +119,7 @@ pub enum ConnectNack {
 #[serde(rename_all = "snake_case")]
 #[allow(missing_docs)]
 pub enum Request {
-    ContainerStats(Container),
+    Inspect(Container),
     Containers,
     Ident,
     Install(RepositoryId, u64),
@@ -187,6 +187,8 @@ pub struct ContainerData {
     pub process: Option<Process>,
     /// Mount state
     pub mounted: bool,
+    /// Container stats
+    pub stats: Option<ContainerStats>,
 }
 
 /// Process information
@@ -224,7 +226,7 @@ pub enum UmountResult {
 pub enum Response {
     Ok,
     Error(Error),
-    ContainerStats(Container, ContainerStats),
+    Inspect(Box<ContainerData>),
     Containers(Vec<ContainerData>),
     Ident(Container),
     Install(Container),

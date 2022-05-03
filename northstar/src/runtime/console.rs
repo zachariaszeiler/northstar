@@ -339,8 +339,8 @@ where
     S: AsyncRead + Unpin,
 {
     let required_permission = match &request {
-        model::Request::ContainerStats { .. } => Permission::ContainerStatistics,
         model::Request::Containers => Permission::Containers,
+        model::Request::Inspect { .. } => Permission::Containers,
         model::Request::Ident { .. } => Permission::Ident,
         model::Request::Install { .. } => Permission::Install,
         model::Request::Kill { .. } => Permission::Kill,
